@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Container, ContainerScreens, ContainerSpinner } from "./styles";
+import { Header } from "./components/Header";
+import { ChakraProvider } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/react";
+import { Home } from "./components/Home";
+import { MovieContextProvider } from "./context";
+import { LittleCar } from "./components/LittleCar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { SuccessOrder } from "./components/SuccessOrder";
 
-function App() {
+export function App() {
+  const [loading, setLoading] = useState(true);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 1000);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+      <MovieContextProvider>
+        <Router>
+          <Container>
+            <Header />
+            {loading ? (
+              <ContainerSpinner>
+                <Spinner color="#fff" size="xl" />
+              </ContainerSpinner>
+            ) : (
+                <ContainerScreens>
+              <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/littleCart" element={<LittleCar />} />
+                  <Route path="/success" element={<SuccessOrder/>} />
+              </Routes>
+                </ ContainerScreens>
+            )}
+          </Container>
+        </Router>
+      </MovieContextProvider>
+    </ChakraProvider>
   );
 }
-
-export default App;
