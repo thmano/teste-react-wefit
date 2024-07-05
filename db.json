@@ -1,5 +1,27 @@
 {
   "Ordered": [
-    
+    {
+      "qntd": 2,
+      "total": 50.97,
+      "movies": [
+        [
+          {
+            "id": 2,
+            "title": "Shang-chi",
+            "price": 30.99,
+            "image": "https://wefit-react-web-test.s3.amazonaws.com/shang-chi.png",
+            "qntd": 1
+          },
+          {
+            "id": 1,
+            "title": "Viúva Negra",
+            "price": 9.99,
+            "image": "https://wefit-react-web-test.s3.amazonaws.com/viuva-negra.png",
+            "qntd": 2
+          }
+        ]
+      ],
+      "id": 1
+    }
   ]
 }

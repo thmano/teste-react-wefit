@@ -15,7 +15,7 @@ export const MovieList = styled.div`
 
 export const MovieArea = styled.div`
   width: 100%;
-  max-width: 338px;
+  max-width: 328px;
   min-width: 328px;
   background-color: #fff;
   border-radius: 4px;
